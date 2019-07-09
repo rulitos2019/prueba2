@@ -150,6 +150,7 @@ body .card-2 {
 body .info {
   display: block;
   grid-template-columns: 1fr 1fr;
+  padding: 3%;
 }
 body .info__titulo {
   grid-column-start: 1;
@@ -183,6 +184,7 @@ body .precios {
   padding-bottom: 10%;
   box-sizing: content-box;
   grid-template-rows: 30% 70%;
+  text-align: center;
 }
 body .precios__titulo {
   grid-column-end: 4;
@@ -197,14 +199,26 @@ body .main {
   height: 500px;
   box-sizing: border-box;
 }
-@media (min-width: 720px) {
+@media only screen and (max-width: 920px) and (min-width: 720px) {
   body .bajada {
     display: block;
-    width: 100%;
+    width: 50%;
     justify-content: center;
     justify-items: center;
     margin-left: 4%;
-    margin-top: 30%;
+    margin-top: 37%;
+  }
+  body .precios {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  body .main {
+    background-image: url(../images/bg-hero.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 300px;
+    box-sizing: border-box;
   }
 }
 @media (min-width: 920px) {
@@ -236,32 +250,27 @@ body .main {
   body .info__foto {
     justify-self: end;
   }
-  body .precios {
-    display: grid;
-    width: 100%;
-    grid-column-gap: 30px;
-  }
   body .card-1 {
-    width: 60%;
-    display: -ms-flexbox;
+    width: 30%;
     -ms-flex-direction: column;
     background-color: #fff;
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
     justify-self: end;
-    margin: 0;
+    display: inline-block;
+    margin-bottom: 6%;
   }
   body .card-2 {
-    width: 60%;
-    display: -ms-flexbox;
+    width: 30%;
     -ms-flex-direction: column;
     background-color: #fff;
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
     justify-self: start;
-    margin: 0;
+    display: inline-block;
+    margin-bottom: 6%;
   }
 }
 
