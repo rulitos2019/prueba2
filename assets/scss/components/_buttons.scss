@@ -1,0 +1,46 @@
+.card-boton {
+  background-color: $ball-blue;
+    width: 100%;
+    color: $white;
+    border: none;
+    padding: 4%;
+
+}
+.card-boton:focus {
+  background-color: $lavender-gray;
+    width: 100%;
+}
+
+.card-boton:hover {
+  background-color: $blue-lagoon;
+    width: 100%;
+}
+
+
+.boton-card-2 {
+  background-color: $ball-blue;
+    color: $white;
+    border: none;
+        float: none;
+            margin-left: 5px;
+                padding: 6px;
+
+}
+.boton-card-2:focus {
+  background-color: $lavender-gray;
+}
+
+.boton-card-2:hover {
+  background-color: $blue-lagoon;
+}
+
+
+
+@media all and (min-width: 768px) {
+  .boton-card-2 {
+    float: right;
+  }
+
+
+
+}

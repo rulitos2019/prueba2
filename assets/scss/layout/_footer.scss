@@ -1,0 +1,22 @@
+.footer {background-color: $raising-black;
+    display: grid;
+    grid-template-columns: 1fr;
+&__lista{
+      display: inline-flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+&__li{
+  padding: 10px;
+}
+&__p {
+    float: right;
+    padding: 10px;
+    color: $white;
+    margin: 0;
+}
+&__a{
+	color:$white;
+}
+}

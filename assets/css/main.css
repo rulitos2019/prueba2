@@ -1,0 +1,499 @@
+@charset "UTF-8";
+/**
+  * Patrón 7-1
+  *
+  * Esta es la estructura del patrón 7-1 utilizado en DesafíoLatam
+  * para la enseñanza del uso correcto de patrones dentro de CSS y
+  * también para la utilización de éste dentro de estructuras de 
+  * trabajo colaborativo.
+  *
+  * @author Cristóbal Domínguez <cristobald@me.com>
+  * @since 1.0
+  *
+  */
+/*
+ *
+ * La carpeta abstracts/ reune todas las herramientas de SASS para el proyecto.
+ * Cada variable global, función, mixin o placeholder debería estar aquí dentro.
+ * 
+ * La regla de oro para esta carpeta es que no deberá imprimir ni una sola línea
+ * de código en el momento de la compilación del CSS. Nada como los helpers de Sass.
+ * 
+ * Cuando se trabaja en un proyecto muy grande con muchos archivos abstracts, podría
+ * ser más interesante agruparlos por tópicos en vez de por tipo. Un ejemplo sería
+ * crear las instancias typography (_typography.scss), theming (_theming.scss), etc.
+ * Cada archivo contendría todos los helpers relacionados a esa instancia: variables, 
+ * functions, mixins y placeholders. Hacerlo así podría hacer el código más sencillo de 
+ * de mantener, especialmente cuando los archivos empiezan a crecer mucho.
+ * 
+ * Nota:
+ * La carpeta abstracts/ podría llamarse utilities/ o helpers/, dependiendo de lo que
+ * se prefiera.
+ *
+ * @author Cristóbal Domínguez <cristobald@me.com>
+ * @since 1.0
+ *
+ */
+/*
+ *
+ * La mayoría de los proyectos tienen una carpeta vendors/ que contiene
+ * todos los archivos CSS de librerías externas y frameworks – Normalize,
+ * Bootstrap, jQuery, jQueryUI, Flickity, Flexslider y así sucesivamente.
+ * Agregando estos en una carpeta aparte podría ser una buena forma de 
+ * decir: “Hey, esto no es mío, no es mi código, no es mi responsabilidad”.
+ *
+ * @author Cristóbal Domínguez <cristobald@me.com>
+ * @since 1.0
+ *
+ */
+@font-face {
+  font-family: "fontello";
+  src: url("../fonts/fontello.eot?85653910");
+  src: url("../fonts/fontello.eot?85653910#iefix") format("embedded-opentype"), url("../fonts/fontello.woff2?85653910") format("woff2"), url("../fonts/fontello.woff?85653910") format("woff"), url("../fonts/fontello.ttf?85653910") format("truetype"), url("../fonts/fontello.svg?85653910#fontello") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../fonts/fontello.svg?85653910#fontello') format('svg');
+  }
+}
+*/
+[class^=icon-]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: 0.2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-tomato:before {
+  content: "";
+}
+
+/* '' */
+/*
+ *
+ * Este archivo contiene las referencias del código boilerplate de tu proyecto.
+ * Aquí podrás encontrar referencias al archivo _reset.scss, a las tipografías
+ * y probablemente algún otro archivo de estilos que defina de una forma estándard
+ * los estilos de elementos usados en HTML.
+ *
+ *
+ * Nota: 
+ * Si tu proyecto usa muchas animaciones, deberías considerar agregar dentro de
+ * esta carpeta un archivo /_animations.scss que contenga las definiciones de los
+ * @keyframes de todas tus animaciones.
+ *
+ * @author Cristóbal Domínguez <cristobald@me.com>
+ * @since 1.0
+ *
+ */
+body {
+  font-family: "Raleway", sans-serif;
+}
+body i.icon-tomato {
+  float: right;
+  font-size: 3rem;
+}
+body .card-1 {
+  width: 60%;
+  padding: 4%;
+  margin-bottom: 40px;
+  display: -ms-flexbox;
+  -ms-flex-direction: column;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  justify-self: end;
+  margin-right: auto;
+  margin-left: auto;
+}
+body .card-2 {
+  width: 60%;
+  padding: 4%;
+  display: -ms-flexbox;
+  -ms-flex-direction: column;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  justify-self: start;
+  margin-right: auto;
+  margin-left: auto;
+}
+body .info {
+  display: block;
+  grid-template-columns: 1fr 1fr;
+}
+body .info__titulo {
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+body .info__item {
+  grid-column-end: 4;
+  grid-column-start: 1;
+}
+body .info__texto {
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+body .bajada {
+  display: block;
+  width: 100%;
+  justify-content: center;
+  justify-items: center;
+  margin-left: 4%;
+  margin-top: 45%;
+}
+body .precios {
+  display: block;
+  grid-template-columns: 1fr 1fr;
+  background-image: url(../images/bg-price.svg);
+  /*background-size: contain;*/
+  background-repeat: no-repeat;
+  width: 100%;
+  padding-top: 20%;
+  padding-bottom: 10%;
+  box-sizing: content-box;
+  grid-template-rows: 30% 70%;
+}
+body .precios__titulo {
+  grid-column-end: 4;
+  grid-column-start: 1;
+  color: white;
+}
+body .main {
+  background-image: url(../images/bg-hero.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 500px;
+  box-sizing: border-box;
+}
+@media (min-width: 720px) {
+  body .bajada {
+    display: block;
+    width: 100%;
+    justify-content: center;
+    justify-items: center;
+    margin-left: 4%;
+    margin-top: 30%;
+  }
+}
+@media (min-width: 920px) {
+  body .bajada {
+    display: block;
+    width: 35%;
+    justify-content: center;
+    justify-items: center;
+    margin-left: 4%;
+    margin-top: 0;
+  }
+  body .main {
+    background-image: url(../images/bg-hero.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 865px;
+    box-sizing: border-box;
+  }
+  body .info {
+    display: grid;
+    grid-column-gap: 30px;
+  }
+  body .info__texto {
+    width: 60%;
+    justify-self: start;
+    text-align: left;
+  }
+  body .info__foto {
+    justify-self: end;
+  }
+  body .precios {
+    display: grid;
+    width: 100%;
+    grid-column-gap: 30px;
+  }
+  body .card-1 {
+    width: 60%;
+    display: -ms-flexbox;
+    -ms-flex-direction: column;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    justify-self: end;
+    margin: 0;
+  }
+  body .card-2 {
+    width: 60%;
+    display: -ms-flexbox;
+    -ms-flex-direction: column;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    justify-self: start;
+    margin: 0;
+  }
+}
+
+h1 {
+  color: #221D23;
+  font-size: 50px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 900;
+}
+
+p {
+  font-size: 16px;
+  color: #221D23;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  line-height: 2em;
+}
+
+h2 {
+  color: #221D23;
+  font-size: 35px;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  padding: 2rem 0;
+  font-weight: 900;
+}
+
+h3 {
+  color: #221D23;
+  font-size: 30px;
+  font-family: "Raleway", sans-serif;
+  padding: 0.5rem 0;
+  font-weight: 900;
+}
+
+h4 {
+  color: #221D23;
+  font-size: 30px;
+  font-family: "Raleway", sans-serif;
+  padding: 0.5rem 0;
+  font-weight: 400;
+}
+
+.titulo-precios {
+  color: white;
+}
+
+/*
+ *
+ * En sitios/aplicaciones grandes es usual tener distintos temas o 
+ * themes implementados. Hay diferentes caminos para lidiar con ese
+ * problema, sin embargo uno de los más sencillos, a mi parecer, sería
+ * tener cada theme dentro de su carpeta.
+ * 
+ * Nota:
+ * La creación de esta carpeta es muy específica a cada proyecto, 
+ * probablemente la mayoría de los sitio/aplicaciones no la necesitarán.
+ *
+ * @author Cristóbal Domínguez <cristobald@me.com>
+ * @since 1.0
+ *
+ */
+/*
+ *
+ * Esta carpeta contiene todo lo que hace relación con el sitio web o la aplicación.
+ * Aquí encontrarás los estilos para las partes principales del sitio (header, footer, 
+ * navigation, sidebar, etc), el sistema de grillas o incluso los estilos de los formularios
+ *
+ *
+ * Nota:
+ * La carpeta layout/ también podría ser llamada partials/, dependiendo de la 
+ * preferencia del desarrollador.
+ *
+ * @author Cristóbal Domínguez <cristobald@me.com>
+ * @since 1.0
+ *
+ */
+.footer {
+  background-color: #221D23;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.footer__lista {
+  display: inline-flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer__li {
+  padding: 10px;
+}
+.footer__p {
+  float: right;
+  padding: 10px;
+  color: #FFF;
+  margin: 0;
+}
+.footer__a {
+  color: #FFF;
+}
+
+.logo {
+  display: inline-block;
+}
+
+.main_nav {
+  padding: 1em 6em;
+  width: 100%;
+  background-color: white;
+}
+.main_nav__list {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+.main_nav__item {
+  padding: 1em;
+  border-bottom: 1px solid var(--menu-color);
+}
+.main_nav__item:last-child {
+  border-bottom: none;
+}
+.main_nav__link {
+  color: var(--menu-color);
+  text-decoration: none;
+  padding: 1em;
+}
+.main_nav__icon {
+  color: var(--menu-color);
+  text-align: right;
+  width: 100%;
+}
+.main_nav .open {
+  display: block;
+}
+
+@media all and (min-width: 768px) {
+  .main_nav {
+    padding: 3rem 4rem;
+    background-color: transparent;
+  }
+  .main_nav__list {
+    display: inline-block;
+    width: 90%;
+    text-align: left;
+  }
+  .main_nav__icon {
+    display: none;
+  }
+  .main_nav__item {
+    display: inline-block;
+    padding: 0.2em;
+    border-bottom: none;
+  }
+
+  nav.footer__nav.container {
+    padding: 3rem;
+  }
+}
+/*
+ * 
+ * Esta carpeta fue creada para componentes o módulos pequeños como por ejemplo: 
+ * sliders, loaders, widgets, etc. A diferencia de la carpeta layout/ donde almacenaremos
+ * los componentes que definan el wireframe del sitio/aplicación, aquí encontraremos
+ * componentes que aportarán más contenido que una estructura visual.
+ * 
+ * Usualmente deberían haber muchos archivos en components/ debido a que los 
+ * sitios/aplicaciones se empezaron a crear en base a pequeños módulos de código.
+ * 
+ * Nota:
+ * Esta carpeta también se podría llamar modules/, dependiendo de cómo tu la prefieras.
+ *
+ * @author Cristóbal Domínguez <cristobald@me.com>
+ * @since 1.0
+ *
+ */
+.card-boton {
+  background-color: #2AB7CA;
+  width: 100%;
+  color: #FFF;
+  border: none;
+  padding: 4%;
+}
+
+.card-boton:focus {
+  background-color: #C7C8CC;
+  width: 100%;
+}
+
+.card-boton:hover {
+  background-color: #B1E4EB;
+  width: 100%;
+}
+
+.boton-card-2 {
+  background-color: #2AB7CA;
+  color: #FFF;
+  border: none;
+  float: none;
+  margin-left: 5px;
+  padding: 6px;
+}
+
+.boton-card-2:focus {
+  background-color: #C7C8CC;
+}
+
+.boton-card-2:hover {
+  background-color: #B1E4EB;
+}
+
+@media all and (min-width: 768px) {
+  .boton-card-2 {
+    float: right;
+  }
+}
+/*
+ *
+ * Si prefieres estilos de páginas específicas, es mejor ponerlos en la carpeta pages/.
+ * Por cierto, es común tener estilos muy específicos para cada página, como por ejemplo:
+ * home, de ahí la necesidad de crear un archivo _home.scss dentro de pages/.
+ * 
+ * Nota:
+ * Dependiendo del proceso de tu desarrollo, estos archivos podrían ser cargados de forma
+ * paralela al archivo de estilos principal, evitando juntarlos con los del estilo principal.
+ * Sin embargo es una decisión de cada uno o de cada proyecto.
+ *
+ * @author Cristóbal Domínguez <cristobald@me.com>
+ * @since 1.0
+ *
+ */
+
+/*# sourceMappingURL=main.css.map */

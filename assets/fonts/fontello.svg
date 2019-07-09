@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2019 by original authors @ fontello.com</metadata>
+<defs>
+<font id="fontello" horiz-adv-x="1000" >
+<font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="tomato" unicode="&#xe800;" d="M852 608h-829c-12 0-23 10-23 23v63c0 13 11 23 23 23h829c13 0 23-10 23-23v-63c0-13-10-23-23-23z m0-313h-829c-12 0-23 11-23 24v62c0 13 11 24 23 24h829c13 0 23-11 23-24v-62c0-13-10-24-23-24z m0-312h-829c-12 0-23 10-23 23v63c0 13 11 23 23 23h829c13 0 23-10 23-23v-63c0-13-10-23-23-23z" horiz-adv-x="875" />
+</font>
+</defs>
+</svg>
