@@ -1,6 +1,6 @@
 .footer {background-color: $raising-black;
     display: grid;
-    grid-template-columns: 1fr;
+        grid-column: span 12;
 &__lista{
       display: inline-flex;
     list-style: none;

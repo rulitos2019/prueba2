@@ -116,54 +116,71 @@
 body {
   font-family: "Raleway", sans-serif;
 }
+body .contenedor {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: minmax(100px, auto);
+  margin: 0 auto;
+}
 body i.icon-tomato {
   float: right;
   font-size: 3rem;
 }
 body .card-1 {
-  width: 60%;
   padding: 4%;
-  margin-bottom: 40px;
-  display: -ms-flexbox;
-  -ms-flex-direction: column;
   background-color: #fff;
-  background-clip: border-box;
+  box-sizing: content-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
   justify-self: end;
   margin-right: auto;
   margin-left: auto;
+  width: 60%;
+  margin-bottom: 6%;
+}
+body .card-1__lista {
+  height: 200px;
+  border-top: 1px black solid;
+  border-bottom: 1px black solid;
 }
 body .card-2 {
-  width: 60%;
   padding: 4%;
-  display: -ms-flexbox;
-  -ms-flex-direction: column;
   background-color: #fff;
-  background-clip: border-box;
+  box-sizing: content-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
   justify-self: start;
   margin-right: auto;
   margin-left: auto;
+  width: 60%;
+  margin-bottom: 10%;
+}
+body .card-2__lista {
+  height: 200px;
+  border-top: 1px black solid;
+  border-bottom: 1px black solid;
 }
 body .info {
-  display: block;
-  grid-template-columns: 1fr 1fr;
-  padding: 3%;
+  grid-column: span 12;
+  display: grid;
+  text-align: center;
 }
 body .info__titulo {
   grid-column-start: 1;
   grid-column-end: 4;
+  grid-column: span 12;
 }
 body .info__item {
   grid-column-end: 4;
   grid-column-start: 1;
 }
 body .info__texto {
-  width: 100%;
-  display: block;
-  text-align: center;
+  grid-column: span 12;
+  padding: 4%;
+}
+body .info__foto {
+  grid-column: span 12;
+  justify-self: center;
 }
 body .bajada {
   display: block;
@@ -173,18 +190,22 @@ body .bajada {
   margin-left: 4%;
   margin-top: 45%;
 }
+body .bajada__titulo {
+  padding: 6% 0% 0% 4%;
+}
+body .bajada__texto {
+  padding: 6% 0% 0% 4%;
+}
 body .precios {
-  display: block;
-  grid-template-columns: 1fr 1fr;
+  /*display: grid;*/
+  grid-column: 12 span;
   background-image: url(../images/bg-price.svg);
-  /*background-size: contain;*/
   background-repeat: no-repeat;
   width: 100%;
   padding-top: 20%;
   padding-bottom: 10%;
   box-sizing: content-box;
-  grid-template-rows: 30% 70%;
-  text-align: center;
+  justify-content: center;
 }
 body .precios__titulo {
   grid-column-end: 4;
@@ -196,81 +217,129 @@ body .main {
   background-size: contain;
   background-repeat: no-repeat;
   width: 100%;
-  height: 500px;
+  height: 600px;
   box-sizing: border-box;
+  grid-column: span 12;
+  background-position-y: bottom;
 }
 @media only screen and (max-width: 920px) and (min-width: 720px) {
   body .bajada {
     display: block;
-    width: 50%;
+    width: 60%;
     justify-content: center;
     justify-items: center;
     margin-left: 4%;
     margin-top: 37%;
   }
+  body .bajada__texto {
+    height: 20%;
+    width: 60%;
+    padding-top: 5%;
+    padding-left: 3%;
+  }
+  body .bajada__titulo {
+    height: 15%;
+    width: 50%;
+    padding: 3%;
+    width: 100%;
+  }
   body .precios {
-    padding-bottom: 0;
-    margin-bottom: 0;
+    display: grid;
   }
   body .main {
     background-image: url(../images/bg-hero.svg);
     background-size: contain;
     background-repeat: no-repeat;
     width: 100%;
-    height: 300px;
+    height: 600px;
     box-sizing: border-box;
+  }
+  body .card-1 {
+    width: 300px;
+    height: 400px;
+    margin-right: 10px;
+  }
+  body .card-2 {
+    width: 300px;
+    height: 400px;
+    margin-left: 10px;
   }
 }
 @media (min-width: 920px) {
   body .bajada {
     display: block;
-    width: 35%;
+    width: 60%;
     justify-content: center;
     justify-items: center;
     margin-left: 4%;
     margin-top: 0;
+  }
+  body .bajada__texto {
+    height: 20%;
+    width: 50%;
+    padding: 5%;
+  }
+  body .bajada__titulo {
+    height: 15%;
+    width: 50%;
+    padding: 5%;
   }
   body .main {
     background-image: url(../images/bg-hero.svg);
     background-size: contain;
     background-repeat: no-repeat;
     width: 100%;
-    height: 865px;
+    height: 800px;
     box-sizing: border-box;
+    grid-column: span 12;
+    background-position-y: bottom;
   }
   body .info {
-    display: grid;
-    grid-column-gap: 30px;
+    grid-template-columns: 1fr 1fr;
+    grid-column: span 12;
   }
   body .info__texto {
-    width: 60%;
     justify-self: start;
+    grid-column: auto;
     text-align: left;
+    width: 80%;
+    margin-left: 10px;
+  }
+  body .info__foto {
+    justify-self: end;
+    grid-column: auto;
+    margin-right: 10px;
+  }
+  body .info__titulo {
+    grid-column: span 12;
   }
   body .info__foto {
     justify-self: end;
   }
+  body .precios {
+    display: grid;
+  }
   body .card-1 {
-    width: 30%;
-    -ms-flex-direction: column;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 0.25rem;
+    width: 350px;
+    height: 500px;
     justify-self: end;
-    display: inline-block;
-    margin-bottom: 6%;
+    margin: 0;
+    margin-right: 10px;
+    display: grid;
+  }
+  body .card-1__body {
+    display: grid;
   }
   body .card-2 {
-    width: 30%;
-    -ms-flex-direction: column;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 0.25rem;
+    width: 350px;
+    height: 500px;
     justify-self: start;
-    display: inline-block;
-    margin-bottom: 6%;
+    margin: 0;
+    margin-left: 10px;
+    display: grid;
+  }
+  body .card-2__body {
+    display: grid;
   }
 }
 
@@ -287,6 +356,7 @@ p {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   line-height: 2em;
+  font-size: 20px;
 }
 
 h2 {
@@ -351,7 +421,7 @@ h4 {
 .footer {
   background-color: #221D23;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-column: span 12;
 }
 .footer__lista {
   display: inline-flex;
@@ -455,6 +525,7 @@ h4 {
   color: #FFF;
   border: none;
   padding: 4%;
+  height: 60px;
 }
 
 .card-boton:focus {
