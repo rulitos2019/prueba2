@@ -204,7 +204,7 @@ body .precios {
   width: 100%;
   padding-top: 20%;
   padding-bottom: 10%;
-  box-sizing: content-box;
+  background-size: cover;
   justify-content: center;
 }
 body .precios__titulo {
@@ -286,7 +286,7 @@ body .main {
   }
   body .main {
     background-image: url(../images/bg-hero.svg);
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
     height: 800px;
@@ -318,6 +318,7 @@ body .main {
   }
   body .precios {
     display: grid;
+    background-size: cover;
   }
   body .card-1 {
     width: 350px;
